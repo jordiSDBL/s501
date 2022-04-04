@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="/plantilla/template :: header"></header>
+
+<div class="container">
+    <h1 th:text="${titol}"></h1>
+    <br>
+</div>
+
+<div class="container">
+
+    <a class="btn btn-primary btn-sm" th:href="@{/sucursals/afegir}"
+    th:text="Afegir" title="Crea un nou registre"></a>
+    <br>
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">País</th>
+                <th scope="col">Tipus</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+                <th scope="col">Mostrar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="sc:${sucursals}">
+                <th scope="row" th:text="${sc.pk_SucursalID}">4</th>
+                <td th:text="${sc.nomSucursal}"></td>
+                <td th:text="${sc.paisSucursal}"></td>
+                <td th:text="${sc.tipusSucursal}"></td>
+                <td><a th:href="@{/sucursals/editar/} + ${sc.pk_SucursalID}"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-import" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#009988" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <ellipse cx="12" cy="6" rx="8" ry="3" />
+                        <path d="M4 6v8m5.009 .783c.924 .14 1.933 .217 2.991 .217c4.418 0 8 -1.343 8 -3v-6" />
+                        <path d="M11.252 20.987c.246 .009 .496 .013 .748 .013c4.418 0 8 -1.343 8 -3v-6m-18 7h7m-3 -3l3 3l-3 3" />
+                    </svg>
+                </td>
+                <td><a th:href="@{/sucursals/eliminar/} + ${sc.pk_SucursalID}"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database-off" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12.983 8.978c3.955 -.182 7.017 -1.446 7.017 -2.978c0 -1.657 -3.582 -3 -8 -3c-1.661 0 -3.204 .19 -4.483 .515m-2.783 1.228c-.471 .382 -.734 .808 -.734 1.257c0 1.22 1.944 2.271 4.734 2.74" />
+                        <path d="M4 6v6c0 1.657 3.582 3 8 3c.986 0 1.93 -.067 2.802 -.19m3.187 -.82c1.251 -.53 2.011 -1.228 2.011 -1.99v-6" />
+                        <path d="M4 12v6c0 1.657 3.582 3 8 3c3.217 0 5.991 -.712 7.261 -1.74m.739 -3.26v-4" />
+                        <line x1="3" y1="3" x2="21" y2="21" />
+                    </svg>
+                </td>
+                <td><a th:href="@{/sucursals/mostrar/} + ${sc.pk_SucursalID}"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-eye" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffbf00" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="12" cy="12" r="2" />
+                        <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                    </svg>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

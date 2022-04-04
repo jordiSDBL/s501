@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+
+<div class="container">
+
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-light" th:text="${titol}"></div>
+        <div class="card-body">
+
+        <form th:action="@{/sucursals/desar}" th:object="${sucursal}" method="post">
+            <div class="mb-3">
+                <input type="hidden" name="pk_SucursalID" th:field="*{pk_SucursalID}"/>
+                <label class="col-md-2 form-label" for="nom">Nom:</label>
+                <input type="text" th:field="*{nomSucursal}" class="form-control col-md-6" id="nom" placeholder="Nom de la sucursal">
+            </div>
+            <div class="mb-3">
+                <label class="col-md-2 form-label" for="pais">País:</label>
+                <input type="text" th:field="*{paisSucursal}" class="form-control col-md-6" id="pais" placeholder="País de la sucursal">
+            </div>
+
+            <div class="card-footer bg-dark">
+                <input type="submit" class="btn btn-primary" value="Desar"/>
+            </div>
+
+        </form>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

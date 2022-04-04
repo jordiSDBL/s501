@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="UTF-8">
+        <title>Plantilla general</title>
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    </head>
+    <body>
+        <!--BARRA DE NAVEGACIÓ-->
+        <br>
+        <header th:fragment="header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <a class="navbar-brand" href="https://github.com/jordiSDBL?tab=repositories"><strong>GitHub</strong></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!--ENLLAÇOS DEL MENÚ-->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" th:href="@{/home}">Inici</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/sucursals/llista}">Sucursals</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+        <!--CONTINGUT-->
+        <div class="container">
+
+        </div>
+
+        <!--PEU DE PÀGINA-->
+        <footer th:fragment="footer" class="bg-dark text-center text-light fixed-bottom">
+            <div class="container">
+                <p>IT Academy - Java amb Spring Framework</p>
+            </div>
+
+            <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+        </footer>
+    </body>
+</html>
